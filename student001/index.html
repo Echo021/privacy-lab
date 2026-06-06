@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>FashionHub</title>
+<title>FashionHub Consent Lab</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -13,36 +13,59 @@
 
 body{
     background:#fafafa;
+    font-family:Inter,Arial,sans-serif;
 }
 
+/* NAV */
+
+.navbar{
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+.nav-link{
+    font-weight:500;
+    white-space:nowrap;
+}
+
+.nav-link:hover{
+    text-decoration:underline;
+}
+
+/* HERO */
+
 .hero{
-    height:500px;
-    background:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600') center center/cover;
+    height:600px;
+    background:url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600") center center/cover;
     display:flex;
     align-items:center;
     justify-content:center;
-    color:white;
-    text-align:center;
 }
 
 .hero-overlay{
     background:rgba(0,0,0,.45);
     padding:40px;
-    border-radius:12px;
+    border-radius:16px;
+    color:#fff;
+    text-align:center;
 }
+
+/* PRODUCTS */
 
 .product-card{
     transition:.3s;
 }
 
 .product-card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 }
 
 .product-img{
     height:280px;
     object-fit:cover;
 }
+
+/* COOKIE BUTTON */
 
 .cookie-launcher{
     position:fixed;
@@ -53,9 +76,11 @@ body{
     border:none;
     border-radius:50%;
     font-size:24px;
-    z-index:9999;
-    box-shadow:0 4px 15px rgba(0,0,0,.2);
+    z-index:99999;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
 }
+
+/* STATUS */
 
 .status-box{
     background:#f8f9fa;
@@ -63,28 +88,85 @@ body{
     padding:12px;
 }
 
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .navbar-brand{
+        font-size:1.2rem !important;
+    }
+
+    .nav{
+        gap:.4rem !important;
+    }
+
+    .nav-link{
+        font-size:.85rem;
+        padding:.25rem;
+    }
+
+    .hero{
+        height:420px;
+    }
+
+    .hero-overlay{
+        width:90%;
+    }
+
+}
+
 </style>
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg bg-white border-bottom">
+<!-- NAV -->
+
+<nav class="navbar py-3">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">
+
+        <a class="navbar-brand fw-bold fs-3">
             FashionHub
         </a>
 
-        <div class="navbar-nav ms-auto">
-            <a class="nav-link" href="#">Women</a>
-            <a class="nav-link" href="#">Men</a>
-            <a class="nav-link" href="#">Accessories</a>
-            <a class="nav-link" href="#">Sale</a>
-        </div>
+        <ul class="nav ms-auto flex-nowrap gap-3">
+
+            <li class="nav-item">
+                <a class="nav-link text-dark">
+                    Women
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark">
+                    Men
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark">
+                    Accessories
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark">
+                    Sale
+                </a>
+            </li>
+
+        </ul>
+
     </div>
 </nav>
 
+<!-- HERO -->
+
 <section class="hero">
+
     <div class="hero-overlay">
-        <h1 class="display-4 fw-bold">
+
+        <h1 class="display-3 fw-bold">
             Summer Collection 2026
         </h1>
 
@@ -95,8 +177,12 @@ body{
         <button class="btn btn-light btn-lg">
             Shop Now
         </button>
+
     </div>
+
 </section>
+
+<!-- PRODUCTS -->
 
 <div class="container py-5">
 
@@ -108,57 +194,81 @@ body{
 
         <div class="col-md-3">
             <div class="card product-card">
-                <img class="card-img-top product-img"
-                     src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800">
+
+                <img
+                class="card-img-top product-img"
+                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800">
+
                 <div class="card-body">
                     <h5>Classic Tee</h5>
                     <p>$39</p>
+
                     <button class="btn btn-dark w-100">
                         Add To Cart
                     </button>
+
                 </div>
+
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="card product-card">
-                <img class="card-img-top product-img"
-                     src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800">
+
+                <img
+                class="card-img-top product-img"
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800">
+
                 <div class="card-body">
                     <h5>Running Shoes</h5>
                     <p>$89</p>
+
                     <button class="btn btn-dark w-100">
                         Add To Cart
                     </button>
+
                 </div>
+
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="card product-card">
-                <img class="card-img-top product-img"
-                     src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800">
+
+                <img
+                class="card-img-top product-img"
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=800">
+
                 <div class="card-body">
                     <h5>Denim Jacket</h5>
                     <p>$119</p>
+
                     <button class="btn btn-dark w-100">
                         Add To Cart
                     </button>
+
                 </div>
+
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="card product-card">
-                <img class="card-img-top product-img"
-                     src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?q=80&w=800">
+
+                <img
+                class="card-img-top product-img"
+                src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?q=80&w=800">
+
                 <div class="card-body">
                     <h5>Premium Hoodie</h5>
                     <p>$69</p>
+
                     <button class="btn btn-dark w-100">
                         Add To Cart
                     </button>
+
                 </div>
+
             </div>
         </div>
 
@@ -166,12 +276,18 @@ body{
 
 </div>
 
+<!-- COOKIE BUTTON -->
+
 <button
 class="btn btn-dark cookie-launcher"
 data-bs-toggle="modal"
 data-bs-target="#cmpModal">
+
 <i class="bi bi-cookie"></i>
+
 </button>
+
+<!-- MODAL -->
 
 <div class="modal fade" id="cmpModal">
 
@@ -180,54 +296,55 @@ data-bs-target="#cmpModal">
 <div class="modal-content">
 
 <div class="modal-header">
-    <h5 class="modal-title">
-        Consent Lab
-    </h5>
 
-    <button class="btn-close"
-            data-bs-dismiss="modal">
-    </button>
+<h5 class="modal-title">
+Consent Lab
+</h5>
+
+<button
+class="btn-close"
+data-bs-dismiss="modal">
+</button>
+
 </div>
 
 <div class="modal-body">
 
-    <label class="form-label">
-        Cookie Banner Script
-    </label>
+<label class="form-label">
+Cookie Banner Script
+</label>
 
-    <textarea
-        id="cmpScript"
-        class="form-control"
-        rows="10"
-        placeholder="Paste CMP script here">
-    </textarea>
+<textarea
+id="cmpScript"
+class="form-control"
+rows="10"
+placeholder="Paste CMP Script Here">
+</textarea>
 
-    <div class="mt-3 d-flex gap-2">
+<div class="mt-3 d-flex gap-2">
 
-        <button class="btn btn-primary"
-                onclick="saveScript()">
-            Save
-        </button>
+<button
+class="btn btn-primary"
+onclick="saveScript()">
+Save CMP
+</button>
 
-        <button class="btn btn-success"
-                onclick="runScript()">
-            Run
-        </button>
+<button
+class="btn btn-outline-danger"
+onclick="clearCMP()">
+Clear
+</button>
 
-    </div>
+</div>
 
-    <hr>
+<hr>
 
-    <div class="status-box">
+<div class="status-box">
 
-        <strong>Status</strong>
+<strong>Status</strong>
 
-        <div id="cmpStatus" class="mt-2">
-            CMP Not Loaded
-        </div>
-
-    </div>
-
+<div id="cmpStatus" class="mt-2">
+No CMP Installed
 </div>
 
 </div>
@@ -236,7 +353,9 @@ data-bs-target="#cmpModal">
 
 </div>
 
-<div id="cmpContainer"></div>
+</div>
+
+</div>
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -252,83 +371,133 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 const STORAGE_KEY = "student001_cmp_script";
 
-window.onload = function(){
+/* 页面加载自动恢复 CMP */
 
-    const saved =
-        localStorage.getItem(STORAGE_KEY);
+document.addEventListener(
+    "DOMContentLoaded",
+    loadCMP
+);
 
-    if(saved){
-
-        document.getElementById(
-            "cmpScript"
-        ).value = saved;
-
-    }
-
-}
+/* 保存 */
 
 function saveScript(){
 
     const code =
         document.getElementById(
             "cmpScript"
-        ).value;
+        ).value.trim();
+
+    if(!code){
+
+        alert(
+            "Please paste CMP script."
+        );
+
+        return;
+    }
 
     localStorage.setItem(
         STORAGE_KEY,
         code
     );
 
-    alert("Script Saved");
+    alert(
+        "CMP Saved Successfully."
+    );
 
+    location.reload();
 }
 
-function runScript(){
+/* 删除 */
 
-    const code =
+function clearCMP(){
+
+    localStorage.removeItem(
+        STORAGE_KEY
+    );
+
+    location.reload();
+}
+
+/* 自动加载 CMP */
+
+function loadCMP(){
+
+    const saved =
+        localStorage.getItem(
+            STORAGE_KEY
+        );
+
+    if(!saved){
+
         document.getElementById(
-            "cmpScript"
-        ).value;
+            "cmpStatus"
+        ).innerHTML =
+        "No CMP Installed";
 
-    if(!code){
-        alert("Please paste script first");
         return;
     }
 
     document.getElementById(
-        "cmpStatus"
-    ).innerHTML =
-    "CMP Loaded ✓";
+        "cmpScript"
+    ).value = saved;
 
-    const temp =
-        document.createElement("div");
+    try{
 
-    temp.innerHTML = code;
-
-    const scripts =
-        temp.querySelectorAll("script");
-
-    scripts.forEach(oldScript=>{
-
-        const script =
-            document.createElement("script");
-
-        [...oldScript.attributes]
-        .forEach(attr=>{
-            script.setAttribute(
-                attr.name,
-                attr.value
+        const wrapper =
+            document.createElement(
+                "div"
             );
+
+        wrapper.innerHTML = saved;
+
+        const scripts =
+            wrapper.querySelectorAll(
+                "script"
+            );
+
+        scripts.forEach(oldScript=>{
+
+            const script =
+                document.createElement(
+                    "script"
+                );
+
+            Array.from(
+                oldScript.attributes
+            ).forEach(attr=>{
+
+                script.setAttribute(
+                    attr.name,
+                    attr.value
+                );
+
+            });
+
+            script.text =
+                oldScript.textContent;
+
+            document.head.appendChild(
+                script
+            );
+
         });
 
-        script.text =
-            oldScript.text;
+        document.getElementById(
+            "cmpStatus"
+        ).innerHTML =
+        "CMP Installed ✓";
 
-        document.body.appendChild(
-            script
-        );
+    }
+    catch(e){
 
-    });
+        console.error(e);
+
+        document.getElementById(
+            "cmpStatus"
+        ).innerHTML =
+        "CMP Load Failed";
+    }
 
 }
 
