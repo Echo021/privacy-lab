@@ -1,15 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Student001 Consent Lab</title>
 </head>
 <body>
 
-<h1>Student 001 Consent Lab</h1>
+<h1>Student001 Consent Lab</h1>
 
-<p>在下面安装 Cookie Banner</p>
+<p>粘贴 Cookie Banner Script：</p>
 
-<!-- CMP SCRIPT HERE -->
+<textarea id="scriptInput"
+          style="width:100%;height:180px;"></textarea>
+
+<br><br>
+
+<button onclick="saveScript()">
+保存脚本
+</button>
+
+<button onclick="runScript()">
+运行脚本
+</button>
+
+<hr>
+
+<div id="scriptContainer"></div>
+
+<script>
+
+const STORAGE_KEY = "student001_cmp";
+
+window.onload = function() {
+
+    const saved =
+        localStorage.getItem(STORAGE_KEY);
+
+    if(saved){
+
+        document.getElementById(
+            "scriptInput"
+        ).value = saved;
+
+    }
+
+}
+
+function saveScript(){
+
+    const code =
+        document.getElementById(
+            "scriptInput"
+        ).value;
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        code
+    );
+
+    alert("已保存");
+
+}
+
+function runScript(){
+
+    const code =
+        document.getElementById(
+            "scriptInput"
+        ).value;
+
+    const container =
+        document.getElementById(
+            "scriptContainer"
+        );
+
+    container.innerHTML = "";
+
+    const temp =
+        document.createElement("div");
+
+    temp.innerHTML = code;
+
+    const scripts =
+        temp.querySelectorAll("script");
+
+    scripts.forEach(oldScript => {
+
+        const newScript =
+            document.createElement("script");
+
+        [...oldScript.attributes]
+        .forEach(attr => {
+            newScript.setAttribute(
+                attr.name,
+                attr.value
+            );
+        });
+
+        newScript.text =
+            oldScript.text;
+
+        document.body.appendChild(
+            newScript
+        );
+
+    });
+
+}
+</script>
 
 </body>
 </html>
